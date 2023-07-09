@@ -1,6 +1,6 @@
 'use strict'
 
-//присвоение лицевым частям карточек случайных иконок, так чтобы получались пары
+//random icons on the cards' faces
 function getRandomInteger (min,max) {
     let rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function (){
     SetIconInCardsAll();
 }, false);
 
-//повороты
+//flips
 function FlipOnBack(number) {
     document.getElementsByClassName('front')[number].style.transform = 'rotateY(180deg)';
     document.getElementsByClassName('back')[number].style.transform = 'rotateY(360deg)';
@@ -33,7 +33,7 @@ function FlipOnFront(number) {
     SaveFlippedCards(number);
 }
 
-// определение и отображение правильности пар
+// definition and displaying right couples
 let flippedCards={}; 
 let isCorrectPair = false;
 let numberCorrectPair = 0;
@@ -138,13 +138,13 @@ function Timer() {
     })(1000)  
 }
 
-//отображение результатов игры
+// results
 function ShowModalWindow() {
     document.getElementsByClassName('modal')[0].style.display = 'block';
     document.getElementsByClassName('shadow_layer')[0].style.display = 'block';
 }
 
-//начать игру заново
+//restart
 function RestartGame() {
     for (let i=0; i<12;i++) {
         FlipOnBack(i);
